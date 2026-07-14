@@ -521,7 +521,88 @@ button:hover{
 
 
 
+/* ================= PROJECT LIBRARY ================= */
 
+
+.projectLibrary button{
+
+    width:100%;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.projectItem{
+
+    background:#191919;
+
+    border:1px solid #444;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+}
+
+
+
+.projectItem:hover{
+
+    border-color:var(--accent);
+
+}
+
+
+
+.projectName{
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+
+
+.projectDate{
+
+    color:#999;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+
+
+.projectActions{
+
+    display:flex;
+
+    gap:6px;
+
+    margin-top:8px;
+
+}
+
+
+
+.projectActions button{
+
+    min-width:auto;
+
+    padding:6px 10px;
+
+    font-size:12px;
+
+}
 
 
 
@@ -594,5 +675,6 @@ button{
 
 }
 
+   
 
 }
