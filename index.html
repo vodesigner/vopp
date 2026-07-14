@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+My Private AI Prompt Studio
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="logoArea">
+
+<h1>
+🔒 My Private AI Prompt Studio
+</h1>
+
+
+<p>
+Personal AI Video Production Workspace · Private Project Manager
+</p>
+
+
+<div class="privateBadge">
+PRIVATE MODE · Personal Use Only
+</div>
+
+
+</div>
+
+</header>
+
+
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="mainLayout">
+
+
+
+
+
+<!-- ================= LEFT PANEL ================= -->
+
+<section class="leftPanel">
+
+
+
+
+
+<!-- PROJECT -->
+
+<div class="card">
+
+
+<h2>
+📁 Project Information
+</h2>
+
+
+<label>
+
+Project Name
+
+<input
+type="text"
+id="projectName"
+placeholder="My Video Project">
+
+</label>
+
+
+
+<label>
+
+AI Engine
+
+<select id="aiType">
+
+<option value="runway">
+Runway
+</option>
+
+<option value="veo">
+Google Veo
+</option>
+
+<option value="kling">
+Kling AI
+</option>
+
+<option value="flow">
+Flow AI
+</option>
+
+<option value="midjourney">
+Midjourney
+</option>
+
+</select>
+
+</label>
+
+
+
+<div class="twoColumn">
+
+
+<label>
+
+Aspect Ratio
+
+<select id="aspectRatio">
+
+<option>9:16</option>
+<option>16:9</option>
+<option>1:1</option>
+<option>4:5</option>
+<option>21:9</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+FPS
+
+<select id="fps">
+
+<option>24</option>
+<option>30</option>
+<option>60</option>
+
+</select>
+
+</label>
+
+
+</div>
+
+
+
+<div class="twoColumn">
+
+
+<label>
+
+Resolution
+
+<select id="resolution">
+
+<option>4K</option>
+<option>2K</option>
+<option>1080P</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Duration
+
+<input
+type="number"
+id="videoDuration"
+value="5">
+
+</label>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- SCENE -->
+
+<div class="card">
+
+
+<h2>
+🎬 Scene Information
+</h2>
+
+
+
+<div class="twoColumn">
+
+
+<label>
+
+Scene Number
+
+<input
+type="number"
+id="sceneNumber"
+value="1">
+
+</label>
+
+
+
+<label>
+
+Scene Duration
+
+<input
+type="number"
+id="sceneDuration"
+value="5">
+
+</label>
+
+
+</div>
+
+
+
+<label>
+
+Location
+
+<input
+type="text"
+id="location">
+
+</label>
+
+
+
+<label>
+
+Location Description
+
+<textarea
+id="locationDescription"></textarea>
+
+</label>
+
+
+
+<div class="twoColumn">
+
+
+<label>
+
+Time
+
+<select id="time">
+
+<option>Morning</option>
+<option>Golden Hour</option>
+<option>Night</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Weather
+
+<select id="weather">
+
+<option>Sunny</option>
+<option>Cloudy</option>
+<option>Rain</option>
+
+</select>
+
+</label>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- SUBJECT -->
+
+
+<div class="card">
+
+
+<h2>
+🧍 Subject
+</h2>
+
+
+
+<label>
+
+Character Description
+
+<textarea
+id="appearance"
+placeholder="Character details"></textarea>
+
+</label>
+
+
+
+<label>
+
+Outfit
+
+<textarea
+id="outfit"></textarea>
+
+</label>
+
+
+
+<label>
+
+Action
+
+<textarea
+id="action"></textarea>
+
+</label>
+
+
+
+<label>
+
+Expression
+
+<textarea
+id="expression"></textarea>
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CAMERA -->
+
+<div class="card">
+
+
+<h2>
+📷 Camera
+</h2>
+
+
+
+<div class="twoColumn">
+
+
+<label>
+
+Shot
+
+<select id="cameraShot">
+
+<option>Medium Shot</option>
+<option>Close Up</option>
+<option>Wide Shot</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Angle
+
+<select id="cameraAngle">
+
+<option>Eye Level</option>
+<option>Low Angle</option>
+<option>High Angle</option>
+
+</select>
+
+</label>
+
+
+</div>
+
+
+
+<label>
+
+Movement
+
+<select id="cameraMovement">
+
+<option>Static</option>
+<option>Dolly In</option>
+<option>Dolly Out</option>
+<option>Orbit</option>
+
+</select>
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- LIGHTING -->
+
+
+<div class="card">
+
+
+<h2>
+💡 Lighting
+</h2>
+
+
+
+<label>
+
+Lighting Type
+
+<select id="lightingType">
+
+<option>Cinematic Lighting</option>
+<option>Golden Hour</option>
+<option>Soft Natural Light</option>
+<option>Volumetric Light</option>
+
+</select>
+
+</label>
+
+
+
+<textarea
+id="lightingDescription"
+placeholder="Lighting description"></textarea>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- STYLE -->
+
+
+<div class="card">
+
+
+<h2>
+🎨 Style
+</h2>
+
+
+<div class="checkGrid">
+
+
+<label>
+<input type="checkbox" class="styleCheck" value="Cinematic">
+Cinematic
+</label>
+
+
+<label>
+<input type="checkbox" class="styleCheck" value="Photorealistic">
+Photorealistic
+</label>
+
+
+<label>
+<input type="checkbox" class="styleCheck" value="Commercial">
+Commercial
+</label>
+
+
+<label>
+<input type="checkbox" class="styleCheck" value="Documentary">
+Documentary
+</label>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- PROMPT -->
+
+
+<div class="card">
+
+
+<h2>
+✍ Main Prompt
+</h2>
+
+
+<textarea
+id="mainPrompt"
+placeholder="Describe your creative idea"></textarea>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🚫 Negative Prompt
+</h2>
+
+
+<textarea
+id="negativePrompt">
+
+low quality,
+blurry,
+watermark,
+bad anatomy,
+deformed,
+low resolution
+
+</textarea>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= RIGHT PANEL ================= -->
+
+
+<section class="rightPanel">
+
+
+<div class="card previewCard">
+
+
+<h2>
+📄 Prompt Preview
+</h2>
+
+
+<textarea
+id="promptOutput"
+readonly>
+
+Your prompt will appear here...
+
+</textarea>
+
+
+</div>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer>
+
+
+<button id="generatePrompt">
+🚀 Generate Prompt
+</button>
+
+
+<button id="copyPrompt">
+📋 Copy Prompt
+</button>
+
+
+
+<button id="saveProject">
+💾 Save Private Project
+</button>
+
+
+
+<button id="loadProject">
+📂 Load Project
+</button>
+
+
+
+<button id="clearForm">
+🗑 Clear
+</button>
+
+
+
+</footer>
+
+
+
+
+
+<input
+type="file"
+id="jsonFile"
+accept=".json"
+style="display:none;">
+
+
+
+
+
+</div>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
