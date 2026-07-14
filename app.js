@@ -20,6 +20,8 @@ function init(){
 
     autoPreview();
 
+    loadProjectList();
+
     generatePrompt();
 
 }
@@ -86,6 +88,13 @@ document
 clearForm
 );
 
+
+   document
+.getElementById("saveLocalProject")
+.addEventListener(
+"click",
+saveLocalProject
+);
 
 }
 
@@ -768,6 +777,232 @@ el.value="";
 
 
 generatePrompt();
+
+
+}
+
+
+/* ==================================================
+   LOCAL STORAGE PROJECT LIBRARY
+================================================== */
+
+
+function saveLocalProject(){
+
+
+const data = collectData();
+
+
+data.savedDate =
+new Date()
+.toLocaleString();
+
+
+
+let projects =
+JSON.parse(
+localStorage.getItem("privateProjects")
+)
+|| [];
+
+
+
+projects.push(data);
+
+
+
+localStorage.setItem(
+
+"privateProjects",
+
+JSON.stringify(projects)
+
+);
+
+
+
+loadProjectList();
+
+
+alert(
+"Project Saved"
+);
+
+
+}
+
+
+
+
+
+
+
+function loadProjectList(){
+
+
+const list =
+document.getElementById(
+"projectList"
+);
+
+
+
+if(!list)
+return;
+
+
+
+let projects =
+JSON.parse(
+localStorage.getItem(
+"privateProjects"
+)
+)
+|| [];
+
+
+
+if(projects.length===0){
+
+list.innerHTML=
+"No saved projects.";
+
+return;
+
+}
+
+
+
+list.innerHTML="";
+
+
+
+projects.forEach(
+(project,index)=>{
+
+
+const div =
+document.createElement(
+"div"
+);
+
+
+
+div.className=
+"projectItem";
+
+
+
+div.innerHTML=`
+
+<div class="projectName">
+
+${project.project.name || "Untitled Project"}
+
+</div>
+
+
+<div class="projectDate">
+
+${project.savedDate || ""}
+
+</div>
+
+
+<div class="projectActions">
+
+<button onclick="loadLocalProject(${index})">
+
+Load
+
+</button>
+
+
+<button onclick="deleteLocalProject(${index})">
+
+Delete
+
+</button>
+
+
+</div>
+
+`;
+
+
+
+list.appendChild(div);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+function loadLocalProject(index){
+
+
+let projects =
+JSON.parse(
+localStorage.getItem(
+"privateProjects"
+)
+);
+
+
+
+restore(
+projects[index]
+);
+
+
+
+generatePrompt();
+
+
+}
+
+
+
+
+
+function deleteLocalProject(index){
+
+
+let projects =
+JSON.parse(
+localStorage.getItem(
+"privateProjects"
+)
+);
+
+
+
+projects.splice(
+index,
+1
+);
+
+
+
+localStorage.setItem(
+
+"privateProjects",
+
+JSON.stringify(projects)
+
+);
+
+
+
+loadProjectList();
 
 
 }
